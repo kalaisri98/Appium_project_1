@@ -16,6 +16,19 @@ public class LoginSteps {
         loginPage.enterPassword("testpass");
         loginPage.tapLogin();
     }
+    
+    @When("I enter invalid credentials")
+    public void enterInvalidCredentials() {
+        loginPage.enterUsername("wronguser");
+        loginPage.enterPassword("wrongpass");
+        loginPage.tapLogin();
+    }
+    
+    @Then("I should see an error message {string}")
+    public void verifyErrorMessage(String expected) {
+        String actual = loginPage.getErrorMessage();
+        Assert.assertEquals(expected, actual);
+    }
 
     @Then("I should be navigated to home screen")
     public void verifyHome() {

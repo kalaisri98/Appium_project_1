@@ -14,6 +14,7 @@ public class LoginPage {
     By username = By.id("com.app:id/username");
     By password = By.id("com.app:id/password");
     By loginButton = By.id("com.app:id/login");
+    By errorMessage = By.id("com.app:id/error"); 
 
     public void enterUsername(String user) {
         driver.findElement(username).sendKeys(user);
@@ -29,5 +30,8 @@ public class LoginPage {
 
     public boolean isHomeScreenVisible() {
         return driver.findElement(By.id("com.app:id/home")).isDisplayed();
+    }
+    public String getErrorMessage() {
+        return driver.findElement(errorMessage).getText();
     }
 }

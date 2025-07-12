@@ -3,4 +3,8 @@
     "username": "testuser",
     "password": "testpass"
   }
+  "InvalidUser": {
+    "username": "wrongUser",
+    "password": "wrongPass"
+  }
 }
