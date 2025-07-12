@@ -8,7 +8,7 @@ import utils.DriverFactory;
 
 public class Hooks {
 
-    // Runs before every scenario
+    // Run before every scenario
     @Before
     public void setUp(Scenario scenario) throws MalformedURLException {
         System.out.println("[Before Scenario] " + scenario.getName());
