@@ -16,10 +16,11 @@ public class DriverFactory {
 
     public static void initDriver() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("platformName", "Android");
-        caps.setCapability("deviceName", "emulator-5554");
-        caps.setCapability("app", "/path/to/app.apk");
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), caps);
+        caps.setCapability("platformName", ConfigReader.get("platformName"));
+        caps.setCapability("deviceName", ConfigReader.get("deviceName"));
+        caps.setCapability("app", ConfigReader.get("appPath"));
+        String serverUrl = ConfigReader.get("appiumServerUrl");
+        driver = new AndroidDriver(new URL(serverUrl), caps);;
     }
 
     public static void quitDriver() {
