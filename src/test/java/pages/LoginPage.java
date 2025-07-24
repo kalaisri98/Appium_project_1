@@ -14,7 +14,9 @@ public class LoginPage {
     By username = By.id("com.app:id/username");
     By password = By.id("com.app:id/password");
     By loginButton = By.id("com.app:id/login");
-    By errorMessage = By.id("com.app:id/error"); 
+    By errorMessage = By.id("com.app:id/error");
+    By ForgotPasswordLink = By.id("com.app:id/forgot_password_link");
+    By ForgotPasswordScreen = By.id("com.app:id/forgot_password_screen");
 
     public void enterUsername(String user) {
         driver.findElement(username).sendKeys(user);
@@ -33,5 +35,12 @@ public class LoginPage {
     }
     public String getErrorMessage() {
         return driver.findElement(errorMessage).getText();
+    }
+    public void tapForgotPassword() {
+        driver.findElement(ForgotPasswordLink).click();
+    }
+
+    public boolean isForgotPasswordScreenVisible() {
+        return driver.findElement(ForgotPasswordScreen).isDisplayed();
     }
 }

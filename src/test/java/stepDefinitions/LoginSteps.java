@@ -29,6 +29,16 @@ public class LoginSteps {
         String actual = loginPage.getErrorMessage();
         Assert.assertEquals(expected, actual);
     }
+    
+    @When("I tap on the {string} link")
+    public void tapForgotPassword(String linkText) {
+        loginPage.tapForgotPassword();
+    }
+
+    @Then("the Forgot Password screen should be displayed")
+    public void verifyForgotPasswordScreen() {
+        Assert.assertTrue(loginPage.isForgotPasswordScreenVisible());
+    }
 
     @Then("I should be navigated to home screen")
     public void verifyHome() {
